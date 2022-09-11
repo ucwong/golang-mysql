@@ -42,12 +42,12 @@ func main() {
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}
-	fmt.Printf("The square number of 13 is: %d", squareNum)
+	fmt.Printf("The square number of 13 is: %d\n", squareNum)
 
 	// Query another number.. 1 maybe?
 	err = stmtOut.QueryRow(1).Scan(&squareNum) // WHERE number = 1
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}
-	fmt.Printf("The square number of 1 is: %d", squareNum)
+	fmt.Printf("The square number of 1 is: %d\n", squareNum)
 }

@@ -35,6 +35,20 @@ func main() {
 		}
 	}
 
+	stmtUpdate, err := db.Prepare("update squarenum set squareNumber=6666 WHERE number = ?")
+	if err != nil {
+		panic(err.Error()) // proper error handling instead of panic in your app
+	}
+	defer stmtUpdate.Close()
+	stmtUpdate.Exec(13)
+
+	stmtDelete, err := db.Prepare("delete from squarenum WHERE number = ?")
+	if err != nil {
+		panic(err.Error()) // proper error handling instead of panic in your app
+	}
+	defer stmtDelete.Close()
+	stmtDelete.Exec(1)
+
 	var squareNum int // we "scan" the result in here
 
 	// Query the square-number of 13
